@@ -18,5 +18,5 @@ csv.parseFile('./Artwork_result.csv', {headers: true})
   result_arr.push(temp);
 })
 .on("end", () => {
-  csv.writeToPath('./Beacon_result.csv', result_arr);
+  csv.writeToPath('./result_set/Beacon_result.csv', result_arr);
 });

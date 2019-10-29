@@ -36,7 +36,7 @@ csv.parseFile('./Artists.csv', {headers: true})
 
 })
 .on("end", () => {
-  csv.writeToPath('./Artist_result.csv', result_arr);
+  csv.writeToPath('./result_set/Artist_result.csv', result_arr);
 });
 
 

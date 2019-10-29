@@ -52,7 +52,7 @@ csv.parseFile('./Artworks.csv', {headers: true})
 
 })
 .on("end", () => {
-  csv.writeToPath('./Artwork_result.csv', result_arr);
+  csv.writeToPath('./result_set/Artwork_result.csv', result_arr);
 });
 
 
