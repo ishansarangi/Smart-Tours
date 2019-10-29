@@ -1,14 +1,19 @@
 {
-  "name": "531",
+  "name": "smart-tours",
   "version": "1.0.0",
   "description": "",
-  "main": "beacon.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ishansarangi/Smart-Tours.git"
+  },
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "fast-csv": "^3.4.0"
-  }
+  "bugs": {
+    "url": "https://github.com/ishansarangi/Smart-Tours/issues"
+  },
+  "homepage": "https://github.com/ishansarangi/Smart-Tours#readme"
 }
