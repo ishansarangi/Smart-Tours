@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/ishansarangi/Smart-Tours/issues"
   },
-  "homepage": "https://github.com/ishansarangi/Smart-Tours#readme"
+  "homepage": "https://github.com/ishansarangi/Smart-Tours#readme",
+  "dependencies": {
+    "fast-csv": "^3.4.0"
+  }
 }
