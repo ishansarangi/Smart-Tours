@@ -4,7 +4,7 @@ var result_arr = [];
 
 var temp = [];
     temp.push("ConstituentID");
-    temp.push("DisplayName");
+    temp.push("ArtistName");
     temp.push("ArtistBio");
     temp.push("Nationality");
     temp.push("Gender");
