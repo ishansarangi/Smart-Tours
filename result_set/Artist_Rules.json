@@ -1,0 +1,1 @@
+{"Collections":[{"sheetName":"Artist_result","startColumn":"A","endColumn":"A","startRow":"2","endRow":"+","comment":"","rule":"Individual: @A*\nTypes: Artist\nFacts: \tConstituentID @A*,\n\tArtistName @B*,\n\tArtistBio @C*,\n\tNationality @D*,\n\tGender @E*,\n\tBeginDate @F*,\n\tEndDate @G*,\n\tWiki_QID @H*,\n\tULAN @I*","active":true}]}
