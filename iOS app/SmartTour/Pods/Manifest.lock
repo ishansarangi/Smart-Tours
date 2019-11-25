@@ -1,0 +1,24 @@
+PODS:
+  - Alamofire (5.0.0-rc.2)
+  - iOSDropDown (0.3.4)
+  - TransitionButton (0.5.2)
+
+DEPENDENCIES:
+  - Alamofire (~> 5.0.0-rc.1)
+  - iOSDropDown
+  - TransitionButton
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - iOSDropDown
+    - TransitionButton
+
+SPEC CHECKSUMS:
+  Alamofire: f9450d3c7f6bea2ad62e7a541c3e9b186c7991d6
+  iOSDropDown: c10a761f9a00c3f1cc9d3bce43ae504628e2f692
+  TransitionButton: fb271583d9c9e4bb116b97103047e5157653f233
+
+PODFILE CHECKSUM: 0cdc697750797ea5bfb9a8dee83441f094a9fac8
+
+COCOAPODS: 1.8.4

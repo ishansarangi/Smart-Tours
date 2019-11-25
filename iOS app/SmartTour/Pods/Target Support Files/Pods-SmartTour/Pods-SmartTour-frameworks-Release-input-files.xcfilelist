@@ -1,0 +1,4 @@
+${PODS_ROOT}/Target Support Files/Pods-SmartTour/Pods-SmartTour-frameworks.sh
+${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
+${BUILT_PRODUCTS_DIR}/TransitionButton/TransitionButton.framework
+${BUILT_PRODUCTS_DIR}/iOSDropDown/iOSDropDown.framework
