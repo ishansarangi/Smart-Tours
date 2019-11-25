@@ -20,8 +20,8 @@ Note: Requires Xcode 11 (in Mac or MacOS installed in VM)
 
 
 ## Video link
-phase 2: https://youtu.be/DOppe6Q_vK0
-phase 3: https://drive.google.com/open?id=1hr02qdARoiPwVtoWdiGAkTm3YBOEYLmU
+- phase 2: https://youtu.be/DOppe6Q_vK0
+- phase 3: https://drive.google.com/open?id=1hr02qdARoiPwVtoWdiGAkTm3YBOEYLmU
 
 ## Note
 These datasets are modified from the original datasets taken from The Museum of Modern Art (MoMA) Collection.
