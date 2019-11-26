@@ -25,3 +25,37 @@ Note: Requires Xcode 11 (in Mac or MacOS installed in VM)
 
 ## Note
 These datasets are modified from the original datasets taken from The Museum of Modern Art (MoMA) Collection.
+
+## Setting up the EC2 instance. 
+1. Install Java
+sudo apt-get install default-jre
+2. Create a fuseki user
+sudo adduser --disabled-password fuseki
+cd /home/fuseki
+sudo su - fuseki
+wget https://archive.apache.org/dist/jena/binaries/apache-jena-fuseki-2.5.0.tar.gz
+tar xzf apache-jena-fuseki-2.5.0.tar.gz
+ln -s apache-jena-fuseki-2.5.0 fuseki
+cd fuseki 
+exit
+
+3. Setup Fuseki as service. Edit the the file. 
+$ sudo vim /etc/default/fuseki
+
+4. Add these to /etc/default/fuseki file.
+FUSEKI_HOME=/home/fuseki/fuseki
+FUSEKI_BASE=/etc/fuseki
+
+$ sudo mkdir /etc/fuseki
+$ sudo chown fuseki /etc/fuseki
+$ sudo cp /home/fuseki/fuseki/fuseki /etc/init.d/
+$ sudo update-rc.d fuseki defaults
+
+
+5. Edit the shiro.ini configuration file. 
+$ sudo vim  /etc/fuseki/shiro.ini
+comment the line.
+ /$/** = localhostFilter 
+ 
+uncomment the line. 
+ /$/** = anon
