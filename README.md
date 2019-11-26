@@ -15,45 +15,45 @@ The datasets are modified from the datasets at [![DOI](https://zenodo.org/badge/
 
 #### Setting up the EC2 instance. 
 - Install Java
-```
-sudo apt-get install default-jre
-```
+ ``` 
+ sudo apt-get install default-jre
+ ```
 - Create a fuseki user 
-```
-sudo adduser --disabled-password fuseki
-cd /home/fuseki
-sudo su - fuseki
-wget https://archive.apache.org/dist/jena/binaries/apache-jena-fuseki-2.5.0.tar.gz
-tar xzf apache-jena-fuseki-2.5.0.tar.gz
-ln -s apache-jena-fuseki-2.5.0 fuseki
-cd fuseki 
-exit
-```
+ ```
+ sudo adduser --disabled-password fuseki
+ cd /home/fuseki
+ sudo su - fuseki
+ wget https://archive.apache.org/dist/jena/binaries/apache-jena-fuseki-2.5.0.tar.gz
+ tar xzf apache-jena-fuseki-2.5.0.tar.gz
+ ln -s apache-jena-fuseki-2.5.0 fuseki
+ cd fuseki 
+ exit
+ ```
 
 - Setup Fuseki as service. Edit the the file. 
-```
-$ sudo vim /etc/default/fuseki
-```
+ ```
+ $ sudo vim /etc/default/fuseki
+ ```
 - Add the following to /etc/default/fuseki file.
 
-`FUSEKI_HOME=/home/fuseki/fuseki`
-`FUSEKI_BASE=/etc/fuseki`
+ `FUSEKI_HOME=/home/fuseki/fuseki`  
+ `FUSEKI_BASE=/etc/fuseki`
 
-```
-$ sudo mkdir /etc/fuseki
-$ sudo chown fuseki /etc/fuseki
-$ sudo cp /home/fuseki/fuseki/fuseki /etc/init.d/
-$ sudo update-rc.d fuseki defaults
-```
+ ```
+ $ sudo mkdir /etc/fuseki
+ $ sudo chown fuseki /etc/fuseki
+ $ sudo cp /home/fuseki/fuseki/fuseki /etc/init.d/
+ $ sudo update-rc.d fuseki defaults
+ ```
 
 - Edit the `shiro.ini` configuration file. 
 ```
 $ sudo vim  /etc/fuseki/shiro.ini
 ```
 
-comment the line: `/$/** = localhostFilter`
+ comment the line: `/$/** = localhostFilter`
  
-uncomment the line: `/$/** = anon`
+ uncomment the line: `/$/** = anon`
 
 
 #### iOS App
