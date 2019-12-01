@@ -31,25 +31,30 @@ public class MuseumController {
 
 	/**
 	 * Get becon Details.
+	 * 
 	 * @param beaconId
 	 * @return
 	 */
 	@RequestMapping(value = "/beacons/{beaconId}", method = RequestMethod.GET)
 	public ResponseEntity<ArtistDetails> donationReport(@PathVariable("beaconId") String beaconId) {
 		ResultSet result;
-		try {			
+		try {
 			result = queryEndpoint(Queries.getArtworkDetailsQuery(beaconId), beaconId);
 			ArtistDetails artistDetails = transformToModel(result, beaconId);
 			System.out.println("Transformed Model: " + artistDetails);
 			return new ResponseEntity<>(artistDetails, HttpStatus.OK);
-		} catch (Exception e) {
+		} catch (ParseException e) {
 			e.printStackTrace();
 			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
 	}
 
 	/**
-	 * Query an Endpoint using the given SPARQl query. 
+	 * Query an Endpoint using the given SPARQl query.
+	 * 
 	 * @param szQuery
 	 * @param beaconId
 	 * @return
@@ -61,19 +66,27 @@ public class MuseumController {
 		QueryExecution qexec = QueryExecutionFactory.sparqlService(Queries.FUSEKI_ENDPOINT, query);
 		((QueryEngineHTTP) qexec).addParam("timeout", "10000");
 		ResultSet rs = qexec.execSelect();
-		//ResultSetFormatter.out(rs);
+		// ResultSetFormatter.out(rs);
 		return rs;
 	}
 
 	/**
 	 * Transform result set to java model.
 	 */
-	private ArtistDetails transformToModel(ResultSet rs, String beaconId) throws ParseException {
+	private ArtistDetails transformToModel(ResultSet rs, String beaconId) throws ParseException, Exception {
+		if(!rs.hasNext()) {
+			throw new Exception("No artwork found for BeaconID");
+		}
+		
 		ArtistDetailsBuilder artistBuilder = new ArtistDetailsBuilder(beaconId);
 		while (rs.hasNext()) {
 			// Get Result
 			QuerySolution qs = rs.nextSolution();
 			Literal accessionNo = qs.getLiteral("accessionNo");
+			System.out.println("accessionNo: "+ accessionNo.toString());
+			if (accessionNo.toString().isEmpty()) {
+				throw new Exception("No artwork found for BeaconID");
+			}
 			artistBuilder.setAccessionNo(accessionNo.toString());
 
 			Literal title = qs.getLiteral("title");
@@ -82,7 +95,7 @@ public class MuseumController {
 			Literal thumbnailURL = qs.getLiteral("url");
 			artistBuilder.setThumbnailURL(thumbnailURL.toString());
 
-			Literal dateAcq =qs.getLiteral("dateAcq");
+			Literal dateAcq = qs.getLiteral("dateAcq");
 			artistBuilder.setDateAcq(dateAcq.toString());
 
 			Literal medium = qs.getLiteral("medium");
@@ -102,12 +115,12 @@ public class MuseumController {
 
 			Literal gender = qs.getLiteral("gender");
 			artistBuilder.setGender(gender.toString());
-			
-//			Literal beginDate =qs.getLiteral("beginDate");
-//			artistBuilder.setBeginDate(beginDate.toString());
-//			
-//			Literal endDate =qs.getLiteral("endDate");
-//			artistBuilder.setEndDate(endDate.toString());
+
+			Literal beginDate = qs.getLiteral("beginDate");
+			artistBuilder.setBeginDate(beginDate.toString());
+
+			Literal endDate = qs.getLiteral("endDate");
+			artistBuilder.setEndDate(endDate.toString());
 		}
 		return artistBuilder.build();
 	}
@@ -121,8 +134,8 @@ public class MuseumController {
 			((QueryEngineHTTP) qexec).addParam("timeout", "10000");
 			ResultSet rs = qexec.execSelect();
 			System.out.println(q.transformToModel(rs, "3"));
-			//ResultSetFormatter.out(rs);
-			//sq.queryEndpoint(Queries.TEST_GET_QUERY);
+			// ResultSetFormatter.out(rs);
+			// sq.queryEndpoint(Queries.TEST_GET_QUERY);
 		} catch (Exception ex) {
 			System.err.println(ex);
 		}

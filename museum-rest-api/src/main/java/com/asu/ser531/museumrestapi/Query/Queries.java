@@ -52,7 +52,9 @@ GET_ARTIST_DETAILS.append("\n?beacon beacon:Beacon_Id ").append("\"").append( be
 				.append("\n?artist artist:ConstituentID ?const;")
 				.append("\nartist:ArtistName ?name;")
 				.append("\nartist:ArtistBio ?bio;")
-				.append("\nartist:Gender ?gender")
+				.append("\nartist:Gender ?gender;")
+				.append("\nartist:BeginDate ?beginDate;")
+				.append("\nartist:EndDate ?endDate.")
 				.append("\n}")
 				.append("\n}")
 				.append("\n}");
