@@ -1,0 +1,31 @@
+plugins {
+	id 'org.springframework.boot' version '2.1.10.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+	id 'java'
+}
+
+group = 'com.asu.ser531'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	//compile('org.springframework.boot:spring-boot-gradle-plugin:2.2.2.BUILD-SNAPSHOT')
+
+	compile('ch.qos.logback:logback-classic:1.1.7') {
+        exclude group: 'org.slf4j', module: 'slf4j-api'
+    }
+	compile group: 'org.apache.jena', name: 'jena-core', version: '3.10.0'
+	compile group: 'org.apache.jena', name: 'jena-iri', version: '3.10.0'
+	compile group: 'org.apache.jena', name: 'jena-cmds', version: '3.10.0'
+	compile group: 'org.apache.jena', name: 'jena-arq', version: '3.10.0'
+	compile group: 'org.apache.jena', name: 'jena-tdb', version: '3.10.0'
+	testCompile group: 'org.apache.jena', name: 'jena-base', version: '3.10.0'
+	compile group: 'org.apache.jena', name: 'jena-shaded-guava', version: '3.10.0'
+	testCompile group: 'org.slf4j', name: 'slf4j-log4j12', version: '1.7.29'
+}
