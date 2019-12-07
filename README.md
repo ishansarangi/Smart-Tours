@@ -66,6 +66,7 @@ Note: Requires Xcode 11 (in Mac or MacOS installed in VM)
 - phase 2: https://youtu.be/DOppe6Q_vK0
 - phase 3: https://drive.google.com/open?id=1hr02qdARoiPwVtoWdiGAkTm3YBOEYLmU
 - phase 4: https://drive.google.com/open?id=1Sg3gDl4GMogOsIsLMpK_TZ_CVJuz1U7o
+- phase 5: https://youtu.be/mEA-z8txYMs
 
 ## Note
 These datasets are modified from the original datasets taken from The Museum of Modern Art (MoMA) Collection.
